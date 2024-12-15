@@ -4,13 +4,11 @@ from BasicOperations import BasicOperations
 
 '''Считываем нуклеотидную последовательность из FASTA-файла'''
 
-# Примеры Accession numbers:
-# PP694298.1 - горноазиатский сурок Marmota baibacina, фрагмент рРНК большой рибосомальной субъединицы
+accession_number = input("Введите accession number: \n")
+instance_FastaReader = FastaReader(accession_number)
 
 '''dna - это переменная, в которую записывается нуклеотидная последовательность из файла'''
 
-accession_number = input("Введите accession number: \n")
-instance_FastaReader = FastaReader(accession_number)
 dna = instance_FastaReader.read_file()
 
 
@@ -24,8 +22,8 @@ dna_instance = BasicOperations(dna)
 
 
 '''
-Проверяем последовательность на наличие ненуклеотидных элементов
-* Функция возвращает 2 объекта и мы распаковываем их в 2 переменных
+Проверяем последовательность на наличие ненуклеотидных элементов.
+Функция validate_sequence возвращает 2 объекта и мы распаковываем их в 2 переменных
 (это понадобится для записи в файл)
 '''
 validation_message, non_nucl_dict = dna_instance.validate_sequence()
